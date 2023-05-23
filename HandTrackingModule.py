@@ -1,13 +1,7 @@
 import cv2
 import mediapipe as mp
 import time
-numdict = {0:"Wrist", 1:"Thumb_CMC", 2:"Thumb_MCP", 3:"Thumb_IP", 4:"Thumb_TIP",
-           5:"Index_MCP", 6:"Index_PIP", 7:"Index_DIP", 8:"Index_TIP", 9:"Middle_MCP",
-           10:"Middle_PIP", 11:"Middle_DIP", 12:"Middle_TIP", 13:"Ring_MCP", 14:"Ring_PIP",
-           15:"Ring_DIP", 16:"Ring_TIP", 17:"Pinky_MCP", 18:"Pinky_PIP", 19:"Pinky_DIP",
-           20:"Pinky_TIP"}
-print(numdict)
-num = int(input("Number:"))
+
 
 class handDetector():
     def __init__(self, mode=False, maxHands=2, modelC=1, detectionCon=0.5, trackCon=0.5):
@@ -42,7 +36,16 @@ class handDetector():
                     cv2.circle(img, (cx,cy), 15, (255,0,0), 3)
         return PosList
 
-def main(num):
+
+if __name__ == "__main__":
+    numdict = {0:"Wrist", 1:"Thumb_CMC", 2:"Thumb_MCP", 3:"Thumb_IP", 4:"Thumb_TIP",
+           5:"Index_MCP", 6:"Index_PIP", 7:"Index_DIP", 8:"Index_TIP", 9:"Middle_MCP",
+           10:"Middle_PIP", 11:"Middle_DIP", 12:"Middle_TIP", 13:"Ring_MCP", 14:"Ring_PIP",
+           15:"Ring_DIP", 16:"Ring_TIP", 17:"Pinky_MCP", 18:"Pinky_PIP", 19:"Pinky_DIP",
+           20:"Pinky_TIP"}
+    print(numdict)
+    num = int(input("Number:"))
+    
     if 0 <= num < 21:
         pTime = 0
         cTime = 0
@@ -62,9 +65,8 @@ def main(num):
             cv2.putText(img, ("fps:"+str(int(fps))), (5,30), cv2.FONT_HERSHEY_DUPLEX, 1, (255,0,0),2)
                 
             cv2.imshow("image",img)
-            cv2.waitKey(1)
+            key = cv2.waitKey(1) & 0xFF
+            if key==ord('q'):
+                break
     else:
         print("Wrong number, try again!!")
-
-if __name__ == "__main__":
-    main(num)
