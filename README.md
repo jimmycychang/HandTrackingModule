@@ -1,4 +1,4 @@
-# HandTrackingModule
+# HandTrackingModule (Using MediaPipe)
 
 Enter the number from 0~20
 
@@ -11,3 +11,5 @@ Enter the number from 0~20
 15:"Ring_DIP", 16:"Ring_TIP", 17:"Pinky_MCP", 18:"Pinky_PIP", 19:"Pinky_DIP",
 
 20:"Pinky_TIP"
+
+![Handtracking](https://github.com/jimmycychang/HandTrackingModule/assets/103914673/38400d91-6a4e-46b6-a36a-ac0bc5eba64b)
